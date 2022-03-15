@@ -1,0 +1,396 @@
+a, abbr, body, acronym, address, applet, article,
+aside, audio, b, big, blockquote canvas, caption, cite, code, dd, del, 
+details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, 
+form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, 
+iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, 
+output, p, pre, q, s, samp, section, small, span, strike, strong, sub, 
+summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video{ margin: 0; padding: 0; border: 0; vertical-align: baseline }
+*, *:after, *:before{ -webkit-box-sizing: border-box; box-sizing: border-box;font-family: 'Open Sans', sans-serif;}
+/*GENERAL STYLING */
+.container{
+    max-width: 1386px;
+    margin: 0 auto;
+    padding: 0 10px;
+    /* background-color: aqua;    */
+}
+p,a{
+    color: #fff;
+    text-decoration: none;
+}
+h2{
+    font-size: 48px;
+    color: #fff;
+    line-height: 1.75;
+    text-align: center;
+    font-weight: bold;
+}
+h3{
+    font-size: 36px;
+    line-height: 2.3;
+    color: #fff;
+    text-align: center;
+    
+}
+/* HEADER */
+.site-header{
+    position: fixed;
+    left: 0;
+    right: 0;
+    padding: 42px 0;
+    z-index: 999;
+}
+.site-header.blue{
+    background-color: #1c5a80;
+    padding: 0;
+    transition: 0.9s;
+}
+.nav-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+/* HEADER -- LOGO */
+.site-logo-wrapper{
+    display: inline-block;
+}
+.site-logo{
+    height: 107px;
+}
+/* HEADER -- NAVBAR */
+.navbar ul{
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -42px;
+}
+.navbar ul li{
+    padding: 0 42px;
+}
+.navbar ul li a{
+    color:#fff;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 1.98px;
+    padding-bottom: 11px;
+    line-height: 80px;
+}
+.active{
+    border-bottom: 4px solid #fff;
+    border-radius: 2px;
+}
+.navbar ul li a:hover{
+    border-bottom: 4px solid #fff;
+}
+.navbar ul li a:focus{
+    border-bottom: 4px solid #fff;
+}
+.nav-btn{
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    border: 2px solid #fff;
+    height: 75px;
+    line-height: 75px;
+    padding: 10px 30px;
+    border-radius: 30px;
+}
+.nav-btn:hover{
+    border-bottom:none;
+    background-color: #fff;
+    color: #1c5a80;
+    transition: 0.7s;
+}
+.nav-btn:focus{
+    background-color: #fff;
+    color: #1c5a80;
+    transition: 0.5s;
+}
+/* HEADER -- HAMBURGER */
+.hamburger{
+    display: none;
+    position: relative;
+    z-index: 1;
+}
+.hamburger span{
+    display: block;
+    position: relative;
+    width: 40px;
+    height: 5px;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    background-color: #fff;
+}
+/* SECTION 1: WELCOME RAMADAN */
+.home-banner{
+    background-position:center;
+    background-size: cover;
+    width: 100%;    
+}
+.home-bg-color{
+    background-color: rgba(28,90,128,0.75);
+    width: 100%;
+    padding: 17% 0 13%;
+}
+.welcome-container{
+    color:#fff;
+    max-width: 569px;
+}
+.welcome-container h1{
+    font-size: 72px;
+    font-weight: bold;
+    line-height:1.16;
+    margin-bottom:30px;
+}
+.welcome-content{
+    max-width: 519px;
+    padding: 10px 0;
+}
+.welcome-container p{
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.33;
+    margin-bottom:38px;
+}
+.welcome-container a{
+    text-decoration: none;
+    color: #1c5a80;
+    font-size: 27px;
+    font-weight: bold;
+    line-height:85px;
+    height:85px;
+    background-color:#fff;
+    border: 1px solid #fff;
+    border-radius:40px;
+    padding:20px 50px ;
+    z-index: 10;
+}
+.welcome-container a:hover{
+    background-color: #1c5a80;
+    color: #fff;
+}
+.welcome-container a:focus{
+    background-color: #1c5a80;
+    color: #fff;
+    transition: 0.5s;
+}
+/* SECTION-2 : HOW IT WORKS */
+.how-it-works-container{
+    background-color: rgb(253,89,165);
+    padding: 93px 0 115px;
+}
+.how-it-works-container .container h2{
+    margin-bottom: 48px;
+}
+.how-it-works-main{
+    display: flex;
+    justify-content: space-between; 
+    /* flex-wrap: wrap; */
+}
+.how-it-works-item{
+    display: flex;
+}
+.how-it-works-img{
+    margin-top: 47px;
+}
+.how-it-works-content{
+    margin-left: 24px;
+}
+.how-it-works-content h3{
+    text-align: left;
+}
+.para-content{
+    max-width: 252px;
+    margin-bottom: 25px;
+}
+.para-content p{
+    font-size: 18px;
+    line-height: 1.44;
+    text-align: left;
+}
+.search-icon{
+    display: inline-block;
+    position: relative;
+    right: 10px;
+    top:6px; 
+}
+.how-it-works-link{
+    border: 2px solid white;
+    color:#FFF;
+    font-size: 18px;
+    text-align: left;
+    height: 53px;
+    line-height: 53px;
+    padding: 10px 20px;
+    border-radius: 30px;
+    /* width: 263px; */
+}
+.how-it-works-link:hover{
+    color: #4d4d4d;
+    background-color: #fff;
+    font-style: italic;
+    transition: 0.9s;
+}
+.how-it-works-link:focus{
+    color: #4d4d4d;
+    background-color: #fff;
+    font-style: italic;
+    transition: 0.9s;
+}
+@media (max-width:1200px){
+    /* SECTION 2: HOW IT WORKS */
+    
+}
+@media (max-width:992px){
+    /*HEADER*/
+    .site-header{
+        padding: 10px 0;
+    }
+    .site-header.blue{
+        padding: 10px 0;
+    }
+    .site-logo{
+        height: 100px;
+    }
+    .hamburger{
+        display: block;
+    }
+    .hamburger.open-menu span:nth-child(2){
+        opacity: 0;}
+    .hamburger.open-menu span:nth-child(1){
+            transform: translateY(14px) rotate(45deg);
+            transition: 0.5s;}
+    .hamburger.open-menu span:nth-child(3){
+        transform: translateY(-14px) rotate(-45deg);
+        transition:0.5s;}
+    .navbar{
+        position: fixed;
+        left:-100%;
+        top:110px;
+        height:80vh;
+        overflow: auto;
+        overflow-x:hidden;
+        width:100%;
+        background-color:#fff;
+        transition: 0.7s;
+        padding-left: 10px;
+        /* z-index: 999; */
+    }
+    .navbar.open-menu{left:0;}
+    .navbar ul{
+        flex-direction: column;
+        padding: 0;
+        margin-bottom: 10px;
+        text-align: left;
+    }
+    .navbar ul li a{
+        color:#1c5a80;}
+    .active{
+        border-bottom: 4px solid #1c5a80;
+    }
+    .navbar ul li a:hover{
+        border-bottom: 4px solid #1c5a80;
+    }
+    .navbar ul li a:focus{
+        border-bottom: 4px solid #1c5a80;
+    }
+    .nav-btn{
+        color: #1c5a80;
+        border: 2px solid #1c5a80;
+    }
+    .nav-btn:hover{
+        background-color: #1c5a80;
+        color: #fff;
+    }
+    .nav-btn:focus{
+        background-color: #1c5a80;
+        color: #fff;
+    }
+    /*SECTION 1 : WELCOME RAMADAN*/
+    .welcome-container h1{
+        font-size:54px;
+        margin-bottom:28px;
+    }
+    .welcome-container p{
+        font-size: 20px;
+        margin-bottom:30px;
+    }
+    .welcome-container a{
+        font-size: 22px;
+        padding:15px 40px ;
+    }
+}
+@media (max-width:768px){
+    /* header */
+    .site-logo{
+        height:85px;
+    }
+    /*SECTION 1: WELCOME RAMADAN*/
+    .welcome-container{
+        padding: 25% 2% 15%;
+        margin: 0 auto;
+        text-align: center;
+    }
+    .welcome-container h1{
+        font-size: 42px;
+        margin-bottom: 38px;
+    }
+    .welcome-content{
+        text-align: center;
+    }
+    .welcome-container p{
+        font-size: 20px;
+        margin-bottom:48px;
+        line-height: 40px;
+    }
+    .welcome-container a{
+        color: #fff;
+        font-size: 24px;
+        background-color:transparent;
+        padding:10px 60px ;
+    }
+    .welcome-container a:hover{
+        background-color: #fff;
+        color: #1c5a80;
+        transition: 0.5s;
+    }
+    .welcome-container a:focus{
+        background-color: #fff;
+        color: #1c5a80;
+        transition: 0.5s;
+    }
+
+     /* SECTION 2: HOW IT WORKS */
+     .how-it-works-container{
+         padding:50px 0;
+     }
+     .how-it-works-container .container h2{
+        margin-bottom: 35px;
+    }
+    .how-it-works-content{
+        margin-left: 0px;
+    }
+    .how-it-works-content h3{
+        text-align: center;
+    }
+     .how-it-works-main{
+        flex-direction: column;
+        justify-content:center;
+        align-items: center; 
+    }
+    .how-it-works-item{
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        margin-bottom: 30px;
+    }
+    .para-content{
+        min-width: 252px;
+    }
+    .para-content p{
+        text-align: center;
+    }
+
+    /*SECTION 3: TASTERAMADAN JOURNEY*/
+}
