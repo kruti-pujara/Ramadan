@@ -8,10 +8,18 @@ summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, vide
 *, *:after, *:before{ -webkit-box-sizing: border-box; box-sizing: border-box;font-family: 'Open Sans', sans-serif;}
 /*GENERAL STYLING */
 .container{
-    max-width: 1416px;
+    max-width: 1420px;
     margin: 0 auto;
     padding: 0 25px;
     /* background-color: aqua;    */
+}
+.bg-img{
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+}
+body.open-menu{
+    overflow: hidden;
 }
 p,a{
     color: #fff;
@@ -30,20 +38,20 @@ h3{
     color: #fff;
     text-align: center;
     font-weight: bold;
-    
 }
 /* HEADER */
 .site-header{
     position: fixed;
     left: 0;
     right: 0;
-    padding: 42px 0;
+    top: 0;
+    padding: 40px 0;
     z-index: 999;
 }
 .site-header.blue{
     background-color: #1c5a80;
-    padding: 0;
-    transition: 0.9s;
+    padding: 15px 0;
+    transition: 0.5s;
 }
 .nav-container{
     display: flex;
@@ -52,15 +60,21 @@ h3{
 }
 /* HEADER -- LOGO */
 .site-logo-wrapper{
-    display: inline-block;
+    width: auto;
+    height: auto;
+    margin: 10px 10px 0 0;
 }
 .site-logo{
+    width: auto;
     height: 107px;
+    vertical-align: middle;
+    display: inline-block;
 }
 /* HEADER -- NAVBAR */
 .navbar ul{
     list-style: none;
     display: flex;
+    align-items: center;
     flex-wrap: wrap;
     margin: 0 -42px;
 }
@@ -75,29 +89,34 @@ h3{
     letter-spacing: 1.98px;
     padding-bottom: 11px;
     line-height: 80px;
+    position: relative;
 }
-.active{
-    border-bottom: 4px solid #fff;
-    border-radius: 2px;
+.navbar ul li a.nav-link::before{
+    position: absolute;
+    content: '';
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #fff;
+    transition: all 0.5s;
 }
-.navbar ul li a:hover{
-    border-bottom: 4px solid #fff;
+.navbar ul li a.nav-link:hover::before, .navbar ul li a.nav-link:focus::before{
+    width: 100%;
 }
-.navbar ul li a:focus{
-    border-bottom: 4px solid #fff;
+.navbar ul li a.active::before{
+    width: 100%;
 }
-.nav-btn{
-    color: #fff;
-    font-size: 20px;
-    font-weight: 600;
-    letter-spacing: 2px;
+.navbar ul li .nav-btn{
+    display: inline-block;
     border: 2px solid #fff;
-    height: 75px;
-    line-height: 75px;
-    padding: 10px 30px;
+    height: 60px;
+    line-height: 56px;
+    padding: 0 35px;
     border-radius: 30px;
+
 }
-.nav-btn:hover{
+.navbar ul li .nav-btn:hover{
     border-bottom:none;
     background-color: #fff;
     color: #1c5a80;
@@ -118,84 +137,105 @@ h3{
     display: block;
     position: relative;
     width: 40px;
-    height: 5px;
+    height: 3px;
     border-radius: 3px;
     margin-bottom: 10px;
     background-color: #fff;
+    cursor: pointer;
+    transition: all 0.5s;
 }
 /* SECTION 1: WELCOME RAMADAN */
-.home-banner{
-    background-position:center;
-    background-size: cover;
-    width: 100%;    
-}
 .home-bg-color{
     background-color: rgba(28,90,128,0.75);
     width: 100%;
     padding: 17% 0 13%;
 }
-.welcome-container{
+.ramadan-welcome{
     color:#fff;
     max-width: 569px;
 }
-.welcome-container h1{
+h1{
     font-size: 72px;
     font-weight: bold;
     line-height:1.16;
-    margin-bottom:30px;
+    margin-bottom:40px;
 }
-.welcome-content{
-    max-width: 519px;
-    padding: 10px 0;
+.ramadan-welcome .para-content{
+    margin-bottom:45px;
 }
-.welcome-container p{
+.ramadan-welcome .para-content p{
     font-size: 24px;
     font-weight: 600;
     line-height: 1.33;
-    margin-bottom:38px;
 }
-.welcome-container a{
+.ramadan-welcome a{
+    display: inline-block;
     text-decoration: none;
     color: #1c5a80;
     font-size: 27px;
     font-weight: bold;
-    line-height:85px;
-    height:85px;
+    line-height:81px;
+    height:83px;
+    padding: 0 50px;
     background-color:#fff;
     border: 1px solid #fff;
     border-radius:40px;
-    padding:20px 50px ;
     z-index: 10;
 }
-.welcome-container a:hover{
+.ramadan-welcome a:hover{
     background-color: #1c5a80;
     color: #fff;
     transition: 0.7s;
 }
-.welcome-container a:focus{
+.ramadan-welcome a:focus{
     background-color: #1c5a80;
     color: #fff;
     transition: 0.5s;
 }
-/* SECTION-2 : HOW IT WORKS */
+/*-----------------------------------------------------------------------------------------------
+ SECTION-2 : HOW IT WORKS */
 .how-it-works-container{
     background-color: rgb(253,89,165);
-    padding: 93px 0 115px;
+    padding: 93px 0 78px;
+}
+.how-it-works-container .container{
+    max-width: 1500px;
 }
 .how-it-works-container .container h2{
     margin-bottom: 48px;
 }
 .how-it-works-main{
     display: flex;
-    justify-content: space-between; 
-    /* flex-wrap: wrap; */
+    justify-content: center;
+    flex-wrap: wrap;
 }
-.how-it-works-item{
+.how-it-works-main .how-it-works-item{
+    flex: 0 0 33.33%;
+    max-width: 33.33%;
+    padding: 0 40px;
+    margin-bottom: 40px;
+    /* background: #0f9e8d; */
+}
+.how-it-works-main .how-it-works-item .works-inner{
     display: flex;
 }
+/* .how-it-works-item1{
+    flex: 0 0 36.52%;
+    max-width: 36.52%;
+}
+.how-it-works-item2{
+    flex: 0 0 37.57%;
+    max-width: 37.57%;
+}
+.how-it-works-item3{
+    flex: 0 0 27.61%;
+    max-width: 27.61%;
+} */
+
 .how-it-works-img{
     margin-top: 47px;
-    max-width: 122px;
+    max-width: 100%;
+    height: 125px;
 }
 .how-it-works-content{
     margin-left: 24px;
@@ -203,16 +243,17 @@ h3{
 .how-it-works-content h3{
     text-align: left;
 }
-.para-content{
-    max-width: 252px;
+.how-it-works-content .para-content{
+    /* max-width: 252px; */
     margin-bottom: 25px;
 }
-.para-content p{
+.how-it-works-content .para-content p{
     font-size: 18px;
     line-height: 1.44;
     text-align: left;
 }
 .how-it-works-search{
+    display: inline-block;
     color: #4d4d4d;
     background-color: #fff;
     font-style: italic;
@@ -220,7 +261,7 @@ h3{
     text-align: left;
     height: 53px;
     line-height: 53px;
-    padding: 10px 20px 10px 45px ;
+    padding: 0 20px 0 45px ;
     border-radius: 30px;
     border: 1px solid #4d4d4d;
 }
@@ -234,13 +275,12 @@ h3{
     left:43px;
 }
 .how-it-works-link{
+    display: inline-block;
     border: 2px solid white;
-    color:#FFF;
     font-size: 18px;
-    text-align: left;
     height: 53px;
     line-height: 53px;
-    padding: 10px 60px;
+    padding: 0px 60px;
     border-radius: 30px;
     font-weight: bold;
     /* width: 263px; */
@@ -256,31 +296,38 @@ h3{
     font-style: italic;
     transition: 0.9s;
 }
+
 /*SECTION 3: TASTE RAMADAN JOURNEY*/
 .taste-ramadan-container {
-    padding: 100px 0;
+    padding: 80px 0 108px 0;
     background-color:#e7e7e7;
 }
 .taste-ramadan-container .container h2{
     color: #bc498f;
-    margin-bottom: 72px;
+    margin-bottom: 75px;
 }
 .taste-ramadan-main{
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
 }
-.taste-ramadan-dates{
-    display: flex;
-    flex-direction: column;
+.taste-ramadan-year{
+    flex: 0 0 335px;
+    max-width: 335px;
+}
+.taste-ramadan-year ul{
+    list-style: none;
 }
 .taste-ramadan-btn{
+    display: inline-block;
     background-color: transparent;
     border: none;
     height:92px;
+    line-height: 92px;
     font-size: 40px;
     font-weight: bold;
     border-radius: 45px;
-    padding:10px 120px ;
+    padding:0 120px ;
     margin-top: 10px;
     margin-bottom: 10px;
     cursor: pointer;
@@ -343,7 +390,7 @@ h3{
     background-color: #0f9e8d;
     transition: 0.7s;
 }
-.taste-ramadan-content::before{
+.content-purple::before{
     position: absolute;
     top:40%;
     left: -5%;
@@ -353,87 +400,132 @@ h3{
     background-color: #bc498f;
     transform: rotate(45deg);
 }
-/* .taste-ramadan-content .yellow-click{
-    background-color: #e1a12d;
+.content-blue::before{
+    position: absolute;
+    top:40%;
+    left: -5%;
+    content: ' ';
+    width: 100px;
+    height: 100px;
+    background-color: #718cb5;
+    transform: rotate(45deg);
 }
-.taste-ramadan-content::before .yellow-click{
+.content-yellow::before{
+    position: absolute;
+    top:40%;
+    left: -5%;
+    content: ' ';
+    width: 100px;
+    height: 100px;
     background-color: #e1a12d;
-} */
+    transform: rotate(45deg);
+}
+.content-green::before{
+    position: absolute;
+    top:40%;
+    left: -5%;
+    content: ' ';
+    width: 100px;
+    height: 100px;
+    background-color: #0f9e8d;
+    transform: rotate(45deg);
+}
+.taste-ramadan-main .content-main{
+    flex: 1;
+    padding-left: 10%;
+    max-width: 1040px;
+}
 .taste-ramadan-content{
     position: relative;
-    background-color:  #bc498f;
     border-radius: 30px;
-    max-width: 850px;
-    padding: 38px 86px;
+    padding: 33px 86px 70px 138px;
+}
+.content-yellow{
+    background-color: #e1a12d;
+}
+.content-purple{
+    background-color: #bc498f;
+}
+.content-green{
+    background-color: #0f9e8d;
+}
+.content-blue{
+    background-color: #718cb5;
 }
 .taste-ramadan-content h3{
 text-align: left;
 font-size: 41px;
 
 }
-.taste-ramadan-para{
+.taste-ramadan-content .para-content p{
     font-size: 21px;
     line-height: 1.57;
     max-width: 678px;
 }
+.content-main .taste-ramadan-content{
+    display: none;
+}
+.content-main .taste-ramadan-content.active{
+    display: block;
+}
 /*SECTION 4 RAMADAN 2020*/
-.ramadan-2020{
+.ramadan-video{
     background-color: #e1e1e1;
 }
-.ramadan-2020-left{
+.ramadan-video-main{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.ramadan-video-left{
     max-width: 50%;
     flex: 0 0 50%;
 }
-.ramadan-2020-left h2{
+.ramadan-video-left h2{
     color: #8572b2;
     line-height: 1.41;
     margin-bottom: 70px;
 }
-.ramadan-2020-left .para-content{
+.ramadan-video-left .left-content-block{
     max-width: 645px;
     margin: 0 auto;
     padding: 0 15px;
     text-align: center;
 }
-.ramadan-2020-left .para-content p{
+.ramadan-video-left .para-content p{
     color: #333;
     font-size: 21px;
     line-height:2.09;
     text-align: center;
 }
-.ramadan-2020-main{
-    width: 100%;
-    display: flex;
-    align-items: center;
-}
-.bg-img{
-    background-position: center;
-    background-size: cover;
-    width: 100%;
-}
-.ramadan-description{
+.ramadan-video-main .ramadan-description{
     max-width: 50%;
     flex: 0 0 50%;
     text-align: center;
     position: relative;
-    padding-bottom: 825px;
+    padding-bottom: 809px;
 }
 .play-img{
     position: absolute;
-    top:25%;
+    top:35%;
     left: 0;
     bottom: 0;
     right: 0;
+    width:270px;
+    margin: 0 auto; 
+    height: 270px;
 }
 .play{
-    height: 298px;
+    width: 100%;
+    height:auto;
 }
 .what-discover-ramadan .ramadan-description{
     max-width: 50%;
     flex: 0 0 50%;
     text-align: center;
     position: relative;
-    padding-bottom: 520px;
+    padding-bottom: 538px;
 }
 .description-inner{
     position: absolute;
@@ -445,11 +537,21 @@ font-size: 41px;
 }
 .description-inner-ai-khair{
     position: absolute;
-    top:18%;
+    top:30%;
     left: 0;
     bottom: 0;
     right: 0;
     padding: 0 10px;
+}
+.description-inner-ai-khair h2{
+    margin-bottom: 20px;
+}
+.description-inner-ai-khair a.btn-purple{
+    display: inline-block;
+    height: 81px;
+    line-height: 81px;
+    border-radius: 34px;
+    padding: 0 37px;
 }
 .ramadan-description .para{
     text-align: center;
@@ -477,41 +579,57 @@ font-size: 41px;
     flex: 0 0 100%;
     text-align: center;
     position: relative;
-    padding-bottom: 540px;
+    padding-bottom: 534px;
 }
 .ai-question .ramadan-description{
     max-width: 50%;
     flex: 0 0 100%;
     text-align: center;
     position: relative;
-    padding-bottom: 530px;
+    padding-bottom: 536px;
+}
+.ramadan-description .description-inner.got-question{
+    top:35%;
+}
+.ramadan-description .description-inner.got-question h2{
+    margin-bottom: 25px;
+}
+.ramadan-description .description-inner.got-question a.btn-blue{
+    display: inline-block;
+    height: 76px;
+    line-height: 74px;
+    border-radius: 40px;
+    padding: 0 50px;
 }
 /*FOOTER*/
 .site-footer{
-    background-position: center;
-    background-size: cover;
-    width: 100%;
-    padding-top: 50px;
+    padding-top: 60px;
     font-family: 'Lato', sans-serif;
 }
 .footer-top{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content:space-between;
     align-items: center;
     margin-bottom: 50px;
     font-size: 20px;
     font-weight: 700;
     color: #FFF;
 }
-/* .footer-link-conatiner{
-    display: flex;
-    max-width: 700px;
-    border: 1px solid red;
-    justify-content: space-evenly;
-} */
-.footer-logo-link img{
-    height: 172px;
+.footer-logo{
+    height: 100%;
+}
+.footer-logo a{
+    display: inline-block;
+}
+.footer-logo a img{
+display: inline-block;
+vertical-align: middle;
+width: 256px;
+height: auto;
+}
+.footer-list{
+    margin-bottom: 25px;
 }
 .footer-list ul{
     list-style: none;
@@ -522,10 +640,20 @@ font-size: 41px;
 .footer-list ul li a:hover{
     border-bottom: 2px solid #fff;
 }
-.media ul{
+.footer-media{
+    margin-bottom: 25px;
+}
+.footer-media .media ul li a img{
+    transition: 0.7s;
+}
+.footer-media .media ul li a img:hover{
+    transform: scale(1.3);
+}
+.footer-media .media ul{
     list-style: none;
     display: flex;
     justify-content:flex-start;
+    align-items: center;
     margin: 0 -20px;
     margin-bottom: 20px;
 }
@@ -557,111 +685,63 @@ font-size: 41px;
     font-size: 12px;
     font-weight: 400;
 }
-@media (max-width:1280px){
-    .taste-ramadan-btn{
-        height:75px;
-        font-size: 36px;
-        padding:5px 80px ;
-        margin-bottom: 20px;
-    }
-   
-    .taste-ramadan-content::before{
-        width: 80px;
-        height: 80px;
-    }
-    .taste-ramadan-content{
-         max-width: 850px;
-        padding: 30px 10px 30px 55px;
-    }
-    .taste-ramadan-content h3{
-        text-align: left;
-        font-size: 36px;
-    }
-    .taste-ramadan-para{
-        font-size: 18px;
-    }
-}
-@media (max-width:1200px){
-    /* h2{
-        font-size: 12px;
-    } */
-    /* .how-it-works-item{
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-    .how-it-works-img{
-        margin-bottom: 25px;
-    }
 
-    .how-it-works-content h3{
-        font-size: 28px;
-        line-height: 32px;
-        margin-bottom: 20px;
-    }
-    .para-content p{
-        font-size: 14px;
-    }
-    .how-it-works-search{
-        font-size: 14px;
-        padding: 5px 20px 5px 45px ;
-    }
-   
-    .search-icon{
-        display: inline-block;
-        position: relative;
-        top:5px;
-        left:43px;
-    }
-    .how-it-works-link{
-       font-size: 14px;       
-       padding: 10px 30px;
-    } */
-  
-    
-    /* ramadan2020 journey */
-
-    .taste-ramadan-btn{
-        height:65px;
-        font-size:32px;
-        padding:5px 65px ;
+@media(max-width:1366px){
+/*General styles*/
+    h1{
+        font-size: 68px;
         margin-bottom: 15px;
     }
-   
-    .taste-ramadan-content::before{
-        width: 80px;
-        height: 80px;
+    h2{
+        font-size: 48px;
+    }
+    h3{
+        font-size:32px;
+    }
+/*section 1: welcome*/
+    .ramadan-welcome .para-content{
+        margin-bottom: 20px;
+    }
+    .ramadan-welcome a{
+        font-size: 22px;
+        padding: 0 40px;
+    }
+/*section 2: how it works*/
+    .how-it-works-container .container h2{
+        margin-bottom: 30px;
+    }
+    .how-it-works-main .how-it-works-item .works-inner{
+        flex-direction: column;
+    }
+    .how-it-works-main .how-it-works-item .works-inner .how-it-works-img{
+        margin: 0 0 0 30px;
     }
     .taste-ramadan-content{
-        max-width: 700px;
-        padding: 30px 10px 30px 55px;
+        padding: 36px 80px;
     }
-    .taste-ramadan-content h3{
-        text-align: left;
-        font-size: 32px;
-    }
-    .taste-ramadan-para{
-        font-size: 18px;
-    }
+    .taste-ramadan-btn{
+        height: 75px;
+        line-height: 75px;
+        padding: 0 80px;
+    }   
 }
-@media (max-width:992px){
-    /* how it works */
-    /* .how-it-works-img img{
-        width: 60px;
-    } */
-    h2{
-        font-size:40px
-    }
-    /*HEADER*/
+@media (max-width:1199px){
+/*General styles---*/
     .site-header{
-        padding: 10px 0;
+        padding: 15px 0;
     }
-    .site-header.blue{
-        padding: 10px 0;
+    .how-it-works-container, .taste-ramadan-container{
+        padding: 55px 0;
     }
-    .site-logo{
-        height: 100px;
+    .taste-ramadan-main{
+        align-items: center;
     }
+    .taste-ramadan-content{
+        padding-right: 25px;
+    }
+
+}
+@media(max-width:1024px){
     .hamburger{
         display: block;
     }
@@ -671,19 +751,19 @@ font-size: 41px;
             transform: translateY(14px) rotate(45deg);
             transition: 0.5s;}
     .hamburger.open-menu span:nth-child(3){
-        transform: translateY(-14px) rotate(-45deg);
+        transform: translateY(-12px) rotate(-45deg);
         transition:0.5s;}
     .navbar{
         position: fixed;
         left:-100%;
-        top:110px;
-        height:80vh;
+        top:140px;
+        height:calc(100% - 140px);
         overflow: auto;
         overflow-x:hidden;
         width:100%;
         background-color:#fff;
-        transition: 0.7s;
-        padding-left: 10px;
+        transition: 0.5s;
+        padding-left: 25px;
         /* z-index: 999; */
     }
     .navbar.open-menu{left:0;}
@@ -692,331 +772,311 @@ font-size: 41px;
         padding: 0;
         margin-bottom: 10px;
         text-align: left;
+        justify-content: flex-start;
+        align-items: flex-start;
     }
-    .navbar ul li a{
+    .navbar ul li a.nav-link{
         color:#1c5a80;}
-    .active{
-        border-bottom: 4px solid #1c5a80;
-    }
-    .navbar ul li a:hover{
-        border-bottom: 4px solid #1c5a80;
-    }
-    .navbar ul li a:focus{
-        border-bottom: 4px solid #1c5a80;
-    }
-    .nav-btn{
+    .navbar ul li a.nav-btn{
         color: #1c5a80;
         border: 2px solid #1c5a80;
+        margin-left: -15px;
     }
-    .nav-btn:hover{
-        background-color: #1c5a80;
+    .navbar ul li a.nav-btn:hover, .navbar ul li a.nav-btn:focus{
         color: #fff;
+        background: #1c5a80;
+        transition: 0.7s;
     }
-    .nav-btn:focus{
-        background-color: #1c5a80;
-        color: #fff;
-    }
-    /*SECTION 1 : WELCOME RAMADAN*/
-    .welcome-container h1{
-        font-size:54px;
-        margin-bottom:28px;
-    }
-    .welcome-container p{
-        font-size: 20px;
-        margin-bottom:30px;
-    }
-    .welcome-container a{
-        font-size: 22px;
-        padding:15px 40px ;
+    .navbar ul li a.nav-link::before{
+        background: #1c5a80;
     }
 
-     /*SECTION 3: TASTE RAMADAN JOURNEY*/
-     .taste-ramadan-container{border-radius: 40px;}
-     .taste-ramadan-container .container h2{
-         margin-bottom: 50px;
-     }
-     .taste-ramadan-main{
-        flex-direction: column;
-     }
-     .taste-ramadan-dates{
-         flex-direction: row;
-         justify-content: space-evenly;
-         margin-bottom: 50px;
-     }
-     .taste-ramadan-btn{
-         height:110px;
-         width: 110px;
-         font-size: 32px;
-         border-radius: 50%;
-         border-width: 4px !important;
-         padding: 0;
-         margin: 0;
-     }
-     .taste-ramadan-content::before{
-         position: absolute;
-         top:-35px;
-         left: 40%;
-         content: ' ';
-         width: 90px;
-         height: 90px;
-         background-color: #bc498f;
-         transform: rotate(45deg);
-         
-     }
-     .taste-ramadan-content{
-         margin: 0 auto;
-         text-align: center;
-         padding: 38px 66px;
-     }
-     .taste-ramadan-content h3{
-     text-align: center;
-     font-size: 36px;
-     padding-top: 20px;
-     
-     }
-     .taste-ramadan-para{
-         font-size: 18px;
-     }
-
-
-    /* // images sections */
-
-    .ramadan-2020-left h2{
-        font-size: 38px;
-        margin-bottom: 60px;
+/*section 2*/
+    .how-it-works-main{
+        text-align: center;
     }
-    .ramadan-2020-left .para-content p{
-        font-size: 18px;
+    .how-it-works-main .how-it-works-item{
+        flex: 0 0 50%;
+        max-width:50%;
     }
-    .play{
-        height: 200px;
+    .how-it-works-content, .how-it-works-content h3, .how-it-works-content .para-content p{
+        margin: 0;
+        text-align: center;
     }
-    .ramadan-description{
-        padding-bottom: 700px;
-    }
-    .what-discover-ramadan .ramadan-description{
-        padding-bottom: 400px;
-    }
-    .ramadan-description .para{
-        font-size: 18px;
-    }
-    .ramadan-description a{
-        font-size: 24px;
-    }
-    .ramadan-description span{
-        font-size: 20px;
-    }
-    .myriad-Foundation .ramadan-description{
-        padding-bottom: 500px;
-    }
-    .ai-question .ramadan-description{
-        padding-bottom: 450px;
+    .how-it-works-content .para-content p{
+        font-size: 16px;
     }
 }
-@media (max-width:768px){
-    h2{font-size: 38px;}
-    /* header */
-    .site-logo{
-        height:85px;
+@media (max-width:991px){
+/*General styles*/
+    h1{
+        font-size: 50px;
     }
-    /*SECTION 1: WELCOME RAMADAN*/
-    .welcome-container{
-        padding: 25% 2% 15%;
-        margin: 0 auto;
-        text-align: center;
-    }
-    .welcome-container h1{
-        font-size: 42px;
-        margin-bottom: 38px;
-    }
-    .welcome-content{
-        text-align: center;
-    }
-    .welcome-container p{
-        font-size: 20px;
-        margin-bottom:48px;
-        line-height: 40px;
-    }
-    .welcome-container a{
-        color: #fff;
-        font-size: 24px;
-        background-color:transparent;
-        padding:10px 60px ;
-    }
-    .welcome-container a:hover{
-        background-color: #fff;
-        color: #1c5a80;
-        transition: 0.5s;
-    }
-    .welcome-container a:focus{
-        background-color: #fff;
-        color: #1c5a80;
-        transition: 0.5s;
-    }
-
-     /* SECTION 2: HOW IT WORKS */
-     .how-it-works-container{
-         padding:50px 0;
-     }
-     .how-it-works-container .container h2{
-        margin-bottom: 35px;
-    }
-    .how-it-works-content{
-        margin-left: 0px;
-    }
-    .how-it-works-content h3{
-        text-align: center;
-    }
-     .how-it-works-main{
-        flex-direction: column;
-        justify-content:center;
-        align-items: center; 
-    }
-    .how-it-works-item{
-        flex-direction: column;
-        text-align: center;
-        align-items: center;
-        margin-bottom: 30px;
-    }
-    .para-content{
-        min-width: 252px;
-    }
-    .para-content p{
-        text-align: center;
-    }
-
-   
-
-
-/* // images sections */
-
-.play{
-    height: 150px;
-}
-.ramadan-description span{
-    font-size: 18px;
-}
-
-    /*FOOTER*/
-    .site-footer{
-        padding-top: 50px;
-    }
-    .footer-top{
-        /* display: flex; */
-        /* justify-content: space-around; */
-        /* align-items: center; */
-        flex-direction: column;
-        margin-bottom: 50px;
-    }
-    .footer-logo{
-        margin-bottom: 20px;
-    }
-    .footer-logo-link img{
-        height: 100px;
-    }
-    .footer-link-conatiner{
-        margin-bottom: 50px;
-    }
-    .footer-list ul{
-        list-style: none;
-        text-align: center;
-        margin-bottom: 25px;
-    }
-    .media ul{
-        list-style: none;
-        display: flex;
-        justify-content: space-evenly;
-        margin-bottom: 15px;
-        
-    }
-    .footer-text{
-        text-align: center;
-    }
-    .footer-bottom span{
-        display: block;
-        color: #e7e7e7;
-        text-align: center;
-        line-height: 2.0;
-    }
-}
-@media (max-width:576px) {
     h2{
         font-size: 36px;
+    }
+    h3{
+        font-size:28px;
     }
     .container{
         padding: 0 15px;
     }
+    /*--------------------------------------------------------------------------*/
+   
+    /*SECTION 1 : WELCOME RAMADAN*/
+    .ramadan-welcome .para-content{
+        margin-bottom:25px;
+    }
+    .ramadan-welcome p{
+        font-size: 20px;
+    }
+    .ramadan-welcome a{
+        font-size: 22px;
+        padding: 0 40px ;
+    }
+    /* SECTION 2: HOW IT WORKS */
+    .how-it-works-container{
+        padding:50px 0;
+    }
+    .how-it-works-container .container h2{
+       margin-bottom: 35px;
+    }
+   .how-it-works-content{
+       margin-left: 0px;
+    }
+   .how-it-works-content h3{
+       text-align: center;
+    }
+    .how-it-works-main{
+       flex-direction: column;
+       justify-content:center;
+       align-items: center; 
+    }
+   .works-inner{
+       flex-direction: column;
+       text-align: center;
+       align-items: center;
+       margin-bottom: 30px;
+    }
+   .how-it-works-content .para-content{
+       min-width: 252px;
+    }
+   .how-it-works-content .para-content p{
+       text-align: center;
+    }
+    /*section 3: taste ramadan journey*/
+        .taste-ramadan-main{
+            justify-content: center;
+        }
+        .taste-ramadan-year{
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .taste-ramadan-main .content-main{
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding: 0;
+    }
+    .taste-ramadan-year ul{
+        display: flex;
+        justify-content: center;
+        padding-bottom: 55px;
+    }
+    .taste-ramadan-year ul li{
+        padding: 0 20px;
+    }
+    .taste-ramadan-btn{
+        height:110px;
+        width: 110px;
+        font-size: 32px;
+        border-radius: 50%;
+        border-width: 4px !important;
+        padding: 0;
+        margin: 0;
+    }
+    .taste-ramadan-content::before{
+        position: absolute;
+        top:-35px;
+        left: 40%;
+        content: ' ';
+        width: 90px;
+        height: 90px;
+        /* background-color: #bc498f; */
+        transform: rotate(45deg);
+    }
+    .taste-ramadan-content{
+        padding: 36px;
+    }
+    .taste-ramadan-content .para-content p{
+        max-width: none;
+    }        
+    .ramadan-video-main .ramadan-video-left{
+        order: 2;
+        flex: 0 0 100%;
+        max-width:100%;
+    }
+    .ramadan-video-main .ramadan-description{
+        order: 1;       
+        flex: 0 0 100%;
+        max-width:100%;
+    }
+    .ramadan-video-left .left-content-block{
+        padding: 30px 15px;
+    }
+    /* footer */
+    .footer-list{
+        margin-bottom:45px;
+    }
+    .footer-top{
+        text-align: center;
+        justify-content: center;
+    }
+    .footer-logo{
+        flex: 0 0 100%;
+        max-width: 100%;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .footer-list{
+        padding: 0 70px;
+    }
+    .footer-media{
+        flex: 0 0 100%;
+        max-width: 100%;
+        text-align: center;
+    }
+    .footer-media .media ul{
+        justify-content: center;
+        margin:0 0 10px 0;
+    }
+}
+@media (max-width:767px){
+    h1{
+        font-size: 40px;
+    }
+    h2{
+        font-size: 34px;
+    }
+    h3{
+        font-size:28px;
+    }
+    p{
+        font-size: 16px;
+    }
+    .how-it-works-container, .taste-ramadan-container{
+        padding: 30px 0;
+    }
+    .navbar{
+        top:145px;
+        height:calc(100% - 145px);
+    }
+    /*SECTION 1: WELCOME RAMADAN*/
+    .ramadan-welcome{
+        padding-top: 85px;
+    }
+    .ramadan-welcome .para-content p{
+        font-size: 22px;
+    }
+/*section 2---*/
+    .how-it-works-main .how-it-works-item{
+        padding: 0;
+    }
+    .how-it-works-link{
+        font-size: 16px;
+        padding: 0 20px;
+        height: 40px;
+        line-height: 36px;
+    }
+    .how-it-works-search{
+        font-size: 16px;
+        height: 40px;
+        line-height: 40px;
+        padding: 0 0 0 46px;
+    }
+}
+@media (max-width:575px){
+    .site-logo{
+        height: 75px;
+    }
+    .navbar{
+        top:113px;
+        height:calc(100% - 113px);
+    }
+/*section 1: welcome ramadan*/
+    .ramadan-welcome{
+        text-align: center;
+        padding-top: 100px;
+    }
+    .ramadan-welcome .para-content p{
+        font-size: 20px;
+    }
+    /*section 3*/
+    .how-it-works-main .how-it-works-item{
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .search-bar{
+        margin: 0;
+    }
+    .how-it-works-main .how-it-works-item .works-inner .how-it-works-img{
+        margin: 0;
+    }
+    
     /*SECTION 3: TATSTE RAMADAN*/
+    .taste-ramadan-year ul{
+        /* padding: 0 -10px; */
+    }
+    .taste-ramadan-year ul li{
+        padding: 0 10px;
+    }
     .taste-ramadan-btn{
         height:80px;
         width: 80px;
+        line-height: 80px;
         border-radius: 50%;
         border-width: 2px !important;
         font-size: 23px;
         padding: 0;
         margin: 0;
     }
-    .taste-ramadan-container{
-        padding: 60px 0;
-    }
     .taste-ramadan-container .container h2{
         margin-bottom: 35px;
-        font-size: 38px;
-        line-height: 1.2;
+        font-size: 34px;
     }
     .taste-ramadan-content{
-        text-align: center;
-        padding: 25px 20px;
+        text-align: justify;
+        padding: 60px 10px;
     }
     .taste-ramadan-content h3{
         text-align: center;
         font-size: 28px;
     }
-    .taste-ramadan-para{
+    .taste-ramadan-content .para-content p{
         font-size: 14px;
     }
-
-    /* images section */
-    .ramadan-2020-left h2{
-        font-size: 26px;
+    .play-img{
+        width: 150px;
+        height: 150px;
     }
-    .ramadan-2020-left .para-content p{
-        font-size: 14px;
-    }
-
-    .ramadan-description{
-        padding-bottom: 500px;
-    }
-    .myriad-Foundation .ramadan-description{
-        padding-bottom: 400px;
-    }
-    .ai-question .ramadan-description{
-        padding-bottom: 400px;
-    }
-    .description-inner-ai-khair h2{
-        font-size: 20px;
-        margin-bottom: 25px;
-        padding: 0;
-    }
-    .ai-question .description-inner h2{
-        margin-bottom: 25px;
-    }
-    .ramadan-description h2{
-        font-size: 26px;
-    }
-    .ramadan-description a{
-        font-size: 16px;
-        border: 2px solid #fff;
-        height: 40px;
-        line-height: 40px;
-        padding: 10px 20px;
-        border-radius: 20px;
-    }
-    .ramadan-description span{
-        font-size: 14px;
-    }
-
 }
-@media (max-width:375px){
-    h2{font-size: 28px;}
+@media (max-width: 425px){
+/*section 3*/
+    .taste-ramadan-year ul{
+        margin: 0;
+    }
+    .taste-ramadan-year ul li{
+        padding: 0 5px;
+    }
+    .taste-ramadan-btn{
+        height:65px;
+        width: 65px;
+        line-height: 65px;
+        font-size: 18px;
+    }
+    .taste-ramadan-content::before{
+        top:-18px;
+        left: 39%;
+        width: 80px;
+        height: 80px;
+    }
 }
